@@ -29,7 +29,7 @@ nav span {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 .container{
-  background-color: #f4f1ec;
+  background-color: #F4F1EC;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -4,6 +4,7 @@
   justify-content: flex-start;
   align-items: stretch;
   width: 100%;
+  margin-bottom: 2em;
 }
 
 #tweet-text{

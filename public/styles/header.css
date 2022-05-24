@@ -8,7 +8,6 @@ header{
   align-content: stretch;
   background-image: url('../images/header_bg.png');
   background-color: #D99820;
-  
   margin-bottom: 1em;
 }
 .avatar-img {
@@ -24,4 +23,7 @@ header img{
 }
 header h2{
   margin-top: 0;
+}
+header span{
+  font-weight: 300;
 }
