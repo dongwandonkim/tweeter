@@ -1,11 +1,15 @@
 article.tweet {
   border: 3px solid;
-  padding: 1.2em;
+  padding: 1em;
   display: flex;
   flex-direction: column;
+  font-weight: 300;
+}
+article.tweet:hover{
+  box-shadow: 0.3em 0.3em #D0D1CF;
+  
 }
 .header{
-  font-weight: 300;
   display: flex;
   justify-content: space-between;
 }
@@ -18,11 +22,13 @@ article.tweet {
 .header .id{
   color: #D0D1CF;
 }
-
+.tweet-content {
+  font-weight: 600;
+}
 .tweet-footer{
   border-top: 3px solid;
   font-size: 0.7em;
-  padding: 1em 2em;
+  padding: 0.6em 1.5em 0;
   display: flex;
   justify-content: space-between;
 }
@@ -31,4 +37,8 @@ article.tweet {
   color:#4052A1;
   display: flex;
   justify-content: space-between;
+}
+.tweet-footer_icons i:hover{
+  cursor: pointer;
+  color:#D99820;
 }
