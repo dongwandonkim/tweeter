@@ -1,0 +1,27 @@
+header{
+  height: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  align-content: stretch;
+  background-image: url('../images/header_bg.png');
+  background-color: #D99820;
+  
+  margin-bottom: 1em;
+}
+.avatar-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:0;
+  padding: 0;
+}
+header img{
+  max-width: 70%;
+  max-height: auto;
+}
+header h2{
+  margin-top: 0;
+}
