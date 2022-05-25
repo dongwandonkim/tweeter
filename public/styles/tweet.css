@@ -4,6 +4,8 @@ article.tweet {
   display: flex;
   flex-direction: column;
   font-weight: 300;
+  margin-bottom: 1em;
+  width: 100%;
 }
 article.tweet:hover{
   box-shadow: 0.3em 0.3em #D0D1CF;
@@ -12,9 +14,11 @@ article.tweet:hover{
 .header{
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .header_left{
-  width: 100%;
+  display: flex;
+  align-items: center;
 }
 .header .name{
   margin-left: 0.3em;
