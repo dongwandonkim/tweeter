@@ -1,7 +1,7 @@
 $(document).ready(function() {
   // --- our code goes here ---
   $('#tweet-text').on('input', function(e) {
-    const counter =  $(this).next().find('output');
+    const counter = $(this).next().find('output');
     let length = $(this).val().length;
     
     counter.val(140 - length);
