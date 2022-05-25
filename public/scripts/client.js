@@ -54,8 +54,6 @@ const loadTweets = function() {
   });
 };
 
-
-
 $(document).ready(function() {
   loadTweets();
   
@@ -70,6 +68,7 @@ $(document).ready(function() {
       toggleFlag = true;
     } else {
       $('.new-tweet').slideUp();
+      $('#tweet-text').val('');
       toggleFlag = false;
     }
   });
@@ -92,6 +91,7 @@ $(document).ready(function() {
           $('#tweets-container').prepend(tweet);
         },
       });
+      $('#tweet-text').val('');
     }
   });
 });
