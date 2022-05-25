@@ -54,8 +54,25 @@ const loadTweets = function() {
   });
 };
 
+
+
 $(document).ready(function() {
   loadTweets();
+  
+  let toggleFlag = false;
+
+  $('.new-tweet').hide();
+
+  $('.nav-right').on('click', function() {
+    if (!toggleFlag) {
+      $('.new-tweet').slideDown();
+      $('#tweet-text').focus();
+      toggleFlag = true;
+    } else {
+      $('.new-tweet').slideUp();
+      toggleFlag = false;
+    }
+  });
 
   $('form').on('submit', function(e) {
     e.preventDefault();
@@ -64,6 +81,7 @@ $(document).ready(function() {
     
     if (length < 0 || length == 140) {
       $('.tweet-error').slideDown().show().delay(2000).slideUp();
+ 
     } else {
       $.ajax({
         type: 'POST',
