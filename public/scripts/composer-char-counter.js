@@ -5,9 +5,10 @@ $(document).ready(function() {
     let length = $(this).val().length;
     
     counter.val(140 - length);
-    
+   
     if (counter.val() < 0) {
       counter.css('color','red');
+      $('#tweet-error').slideDown(400);
     } else {
       counter.css('color','black');
     }

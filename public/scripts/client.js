@@ -16,6 +16,8 @@ const renderTweets = function(tweets) {
 };
 
 const createTweetElement = function(tweet) {
+  
+  
   let $tweet = `<article class="tweet">
 <div class="header">
   <div class="header_left">
@@ -24,9 +26,8 @@ const createTweetElement = function(tweet) {
   </div>
   <span class="id">${tweet.user.handle}</span>
 </div>
-<p class="tweet-content">${tweet.content.text}
+<p class="tweet-content">${safeHtml(tweet.content.text)}
 </p>
-
 <footer class="tweet-footer">
   <span>${timeago.format(tweet.created_at)}</span>
   <div class="tweet-footer_icons">
@@ -38,6 +39,12 @@ const createTweetElement = function(tweet) {
 </article>`;
   
   return $tweet;
+};
+
+const safeHtml = function(str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
 };
 
 const loadTweets = function() {
@@ -54,13 +61,16 @@ const loadTweets = function() {
 $(document).ready(function() {
   loadTweets();
 
+  let inputData = $(this).serialize();
+  let length = $(this).find('output').val();
+
   $('form').on('submit', function(e) {
     e.preventDefault();
-    let inputData = $(this).serialize();
-    let length = $(this).find('output').val();
+    inputData = $(this).serialize();
+    length = $(this).find('output').val();
     
     if (length < 0 || length == 140) {
-      alert('no');
+      
     } else {
       $.ajax({
         type: 'POST',
