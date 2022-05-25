@@ -9,15 +9,11 @@ const renderTweets = function(tweets) {
 // takes return value and appends it to the tweets container
   tweets.forEach((element) => {
     let $tweets = createTweetElement(element);
-
     $('#tweets-container').append($tweets);
   });
-
 };
 
 const createTweetElement = function(tweet) {
-  
-  
   let $tweet = `<article class="tweet">
 <div class="header">
   <div class="header_left">
@@ -61,16 +57,13 @@ const loadTweets = function() {
 $(document).ready(function() {
   loadTweets();
 
-  let inputData = $(this).serialize();
-  let length = $(this).find('output').val();
-
   $('form').on('submit', function(e) {
     e.preventDefault();
-    inputData = $(this).serialize();
-    length = $(this).find('output').val();
+    const inputData = $(this).serialize();
+    const length = $(this).find('output').val();
     
     if (length < 0 || length == 140) {
-      
+      $('.tweet-error').slideDown().show().delay(2000).slideUp();
     } else {
       $.ajax({
         type: 'POST',
@@ -78,10 +71,8 @@ $(document).ready(function() {
         data: inputData,
         success: function(res) {
           const tweet = createTweetElement(res);
-        
           $('#tweets-container').prepend(tweet);
         },
-        
       });
     }
   });

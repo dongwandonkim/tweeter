@@ -8,7 +8,7 @@ $(document).ready(function() {
    
     if (counter.val() < 0) {
       counter.css('color','red');
-      $('#tweet-error').slideDown(400);
+      
     } else {
       counter.css('color','black');
     }
