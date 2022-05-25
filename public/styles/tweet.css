@@ -28,6 +28,7 @@ article.tweet:hover{
 }
 .tweet-content {
   font-weight: 600;
+  word-wrap: break-word;
 }
 .tweet-footer{
   border-top: 3px solid;

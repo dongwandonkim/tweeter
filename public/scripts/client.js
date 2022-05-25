@@ -8,7 +8,6 @@ const renderTweets = function(tweets) {
 // calls createTweetElement for each tweet
 // takes return value and appends it to the tweets container
   tweets.forEach((element) => {
-    
     let $tweets = createTweetElement(element);
 
     $('#tweets-container').append($tweets);
@@ -58,10 +57,9 @@ $(document).ready(function() {
   $('form').on('submit', function(e) {
     e.preventDefault();
     let inputData = $(this).serialize();
-
     let length = $(this).find('output').val();
     
-    if (length <= 0 || length == 140) {
+    if (length < 0 || length == 140) {
       alert('no');
     } else {
       $.ajax({
@@ -70,6 +68,7 @@ $(document).ready(function() {
         data: inputData,
         success: function(res) {
           const tweet = createTweetElement(res);
+        
           $('#tweets-container').prepend(tweet);
         },
         
