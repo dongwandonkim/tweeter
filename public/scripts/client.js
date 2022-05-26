@@ -63,26 +63,13 @@ $(document).ready(function() {
     $(this).children('i').css('animation', "");
   });
 
-  // $('.toggle').on('mouseout', function() {
-   
-  // });
-
-
-
-  let toggleFlag = false;
-
   $('.new-tweet').hide();
 
+  /** toggle new-tweet */
   $('.nav-right').on('click', function() {
-    if (!toggleFlag) {
-      $('.new-tweet').slideDown();
-      $('#tweet-text').focus();
-      toggleFlag = true;
-    } else {
-      $('.new-tweet').slideUp();
-      $('#tweet-text').val('');
-      toggleFlag = false;
-    }
+    $('.new-tweet').toggle(200);
+    $('#tweet-text').val('');
+    $('#tweet-text').focus();
   });
 
   $('form').on('submit', function(e) {
