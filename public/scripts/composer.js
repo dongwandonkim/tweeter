@@ -11,7 +11,7 @@ $(document).ready(function() {
 
   $('.scroll-top').on('click', function() {
     $("html, body").animate({ scrollTop: 0 }, 100);
-    $('.new-tweet').show();
+    $('.new-tweet').slideDown();
     $('#tweet-text').focus();
   });
 });

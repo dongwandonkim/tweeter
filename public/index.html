@@ -48,36 +48,39 @@
       <i class="fa-solid fa-angles-down"></i>
     </div>
   </nav>
-  <header>
-    <div class="avatar-img">
-      <img src="/images/profile-hex.png">
-    </div>
-    <br>
-    <div>
-      <h2>Don <span>Kim</span></h2>
-    </div>
-  </header>
+  <div class="wrapper">
+    <header>
+      <div class="avatar-img">
+        <img src="/images/profile-hex.png">
+      </div>
+      <br>
+      <div>
+        <h2>Don <span>Kim</span></h2>
+      </div>
+    </header>
 
-  <!-- Page-specific (main) content here -->
-  <main class="container">
-    <section class="new-tweet">
-      <form method="POST" action="/tweets">
-        <label for="tweet-text">What are you humming about?</label>
-        <textarea name="text" id="tweet-text"></textarea>
-        <div class="new-tweet-footer">
-          <button type="submit">Tweet</button>
-          <span class="tweet-error">Tweet must be longer than 1 character and shorter than 140 characters</span>
-          <output name="counter" class="counter" for="tweet-text">140</output>
-        </div>
-      </form>
-    </section>
-    <section class="tweet-container" id="tweets-container">
-    </section>
-    <div class="scroll-top">
-      <i class="fa-solid fa-angles-up"></i>
-    </div>
+    <!-- Page-specific (main) content here -->
+    <main class="container">
+      <span class="tweet-error">Tweet must be longer than 1 character and shorter than 140 characters</span>
+      <section class="new-tweet">
+        <form method="POST" action="/tweets">
+          <label for="tweet-text">What are you humming about?</label>
+          <textarea name="text" id="tweet-text"></textarea>
+          <div class="new-tweet-footer">
+            <button type="submit">Tweet</button>
 
-  </main>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+      <section class="tweet-container" id="tweets-container">
+      </section>
+      <div class="scroll-top">
+        <i class="fa-solid fa-angles-up"></i>
+      </div>
+
+    </main>
+  </div>
 
 </body>
 
