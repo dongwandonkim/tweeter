@@ -28,9 +28,9 @@ nav i{
   font-size: 0.8em; 
 }
 
-nav i:hover{
+/* nav toggle:hover{
   animation: bounce 0.6s ease-in-out infinite;
-}
+} */
 
 @keyframes bounce {
   0% {transform: translateY(0);}

@@ -57,6 +57,18 @@ const loadTweets = function() {
 $(document).ready(function() {
   loadTweets();
   
+  $('.toggle').on('mouseenter', function() {
+    $(this).children('i').css('animation', "bounce 0.6s infinite");
+  }).on('mouseout',function() {
+    $(this).children('i').css('animation', "");
+  });
+
+  // $('.toggle').on('mouseout', function() {
+   
+  // });
+
+
+
   let toggleFlag = false;
 
   $('.new-tweet').hide();
@@ -84,7 +96,7 @@ $(document).ready(function() {
     } else {
       $.ajax({
         type: 'POST',
-        url: 'http://localhost:8080/tweets',
+        url: '/tweets',
         data: inputData,
         success: function(res) {
           const tweet = createTweetElement(res);
