@@ -1,8 +1,3 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
 const renderTweets = function(tweets) {
 // loops through tweets
 // calls createTweetElement for each tweet
@@ -13,6 +8,7 @@ const renderTweets = function(tweets) {
   });
 };
 
+/** tweet object into HTML */
 const createTweetElement = function(tweet) {
   let $tweet = `<article class="tweet">
 <div class="header">
@@ -37,12 +33,14 @@ const createTweetElement = function(tweet) {
   return $tweet;
 };
 
+/** XSS prevent */
 const safeHtml = function(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
 
+/** GET tweets */
 const loadTweets = function() {
   $.ajax({
     type: 'GET',
@@ -57,13 +55,26 @@ const loadTweets = function() {
 $(document).ready(function() {
   loadTweets();
   
+  // nav toggle icon animation
+  navBarToggleIconAnimation();
+
+  /** toggle new-tweet */
+  toggleNewTweetComposer();
+
+  postTweet();
+ 
+});
+
+
+const navBarToggleIconAnimation = () => {
   $('.toggle').on('mouseenter', function() {
     $(this).children('i').css('animation', "bounce 0.6s infinite");
   }).on('mouseleave', function() {
     $(this).children('i').css('animation', "");
   });
+};
 
-  /** toggle new-tweet */
+const toggleNewTweetComposer = () => {
   $('.nav-right').on('click', function() {
     if ($('.new-tweet').css('display') === "none") {
       $('.new-tweet').slideDown();
@@ -73,12 +84,16 @@ $(document).ready(function() {
       $('#tweet-text').val('');
     }
   });
+};
 
+/** POST request to create a new tweet */
+const postTweet = () => {
   $('form').on('submit', function(e) {
     e.preventDefault();
-    const inputData = $(this).serialize();
-    const length = $(this).find('output').val();
+    const inputData = $(this).serialize(); //serialize the form data
+    const length = $(this).find('output').val(); //get char length
     
+    // check for invalid length for a new tweet
     if (length < 0 || length == 140) {
       $('.tweet-error').slideDown().show().delay(2000).slideUp();
       $('#tweet-text').focus();
@@ -90,11 +105,12 @@ $(document).ready(function() {
         success: function(res) {
           const tweet = createTweetElement(res);
           $('#tweets-container').prepend(tweet);
+          
+          // clears form and reset counter back to 140
+          $('#tweet-text').val('').focus();
+          $('form').find('output').val(140);
         },
       });
-      $('#tweet-text').val('').focus();
-
     }
   });
-});
-
+};
