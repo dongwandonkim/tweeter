@@ -81,6 +81,7 @@ $(document).ready(function() {
     
     if (length < 0 || length == 140) {
       $('.tweet-error').slideDown().show().delay(2000).slideUp();
+      $('#tweet-text').focus();
     } else {
       $.ajax({
         type: 'POST',
@@ -91,7 +92,8 @@ $(document).ready(function() {
           $('#tweets-container').prepend(tweet);
         },
       });
-      $('#tweet-text').val('');
+      $('#tweet-text').val('').focus();
+
     }
   });
 });
