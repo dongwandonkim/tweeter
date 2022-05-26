@@ -1,6 +1,8 @@
 $(document).ready(function() {
-  // --- our code goes here ---
-  $('#tweet-text').on('input', function(e) {
+  /** counts the characters in textarea form
+   * make it red if length is longer than 140 chars
+  */
+  $('#tweet-text').on('input', function() {
     const counter = $(this).next().find('output');
     let length = $(this).val().length;
     
@@ -10,7 +12,7 @@ $(document).ready(function() {
       counter.css('color','red');
       
     } else {
-      counter.css('color','black');
+      counter.css('color','#545149');
     }
   });
 });
