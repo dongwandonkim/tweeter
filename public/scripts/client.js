@@ -1,3 +1,16 @@
+$(document).ready(function() {
+  loadTweets();
+  
+  // nav toggle icon animation
+  navBarToggleIconAnimation();
+
+  /** toggle new-tweet */
+  toggleNewTweetComposer();
+
+  // Posting a new tweet
+  postNewTweet();
+});
+
 const renderTweets = function(tweets) {
 // loops through tweets
 // calls createTweetElement for each tweet
@@ -35,8 +48,8 @@ const createTweetElement = function(tweet) {
 
 /** XSS prevent */
 const safeHtml = function(str) {
-  let div = document.createElement("div");
-  div.appendChild(document.createTextNode(str));
+  let div = document.createElement("div"); // create a new div
+  div.appendChild(document.createTextNode(str)); // append a TextNode to div
   return div.innerHTML;
 };
 
@@ -51,20 +64,6 @@ const loadTweets = function() {
     }
   });
 };
-
-$(document).ready(function() {
-  loadTweets();
-  
-  // nav toggle icon animation
-  navBarToggleIconAnimation();
-
-  /** toggle new-tweet */
-  toggleNewTweetComposer();
-
-  postTweet();
- 
-});
-
 
 const navBarToggleIconAnimation = () => {
   $('.toggle').on('mouseenter', function() {
@@ -87,7 +86,7 @@ const toggleNewTweetComposer = () => {
 };
 
 /** POST request to create a new tweet */
-const postTweet = () => {
+const postNewTweet = () => {
   $('form').on('submit', function(e) {
     e.preventDefault();
     const inputData = $(this).serialize(); //serialize the form data
