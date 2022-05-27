@@ -27,6 +27,7 @@ article.tweet:hover{
   color: #D0D1CF;
 }
 .tweet-content {
+  margin-left: 0.8em;
   font-weight: 600;
   word-wrap: break-word;
 }
